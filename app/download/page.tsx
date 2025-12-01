@@ -5,15 +5,11 @@ import jsPDF from "jspdf";
 import { Button } from "react-bootstrap";
 import { IoCloudDownload } from "react-icons/io5";
 
-// İstersen targetRef tipini daha net yazabilirsin:
-// function Download({ targetRef }: { targetRef: React.RefObject<HTMLDivElement> }) {
 function Download({ targetRef }: { targetRef: any }) {
   const createPdf = async () => {
-    // Next.js SSR güvenliği
     if (typeof window === "undefined") return;
     if (!targetRef?.current) return;
 
-    // 🔹 TIKLAMA ANINDA yeni bir sekme açıyoruz (Safari için kritik)
     const newWindow = window.open("", "_blank");
 
     try {
@@ -28,14 +24,11 @@ function Download({ targetRef }: { targetRef: any }) {
 
       pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
 
-      // Blob url üret
       const url = pdf.output("bloburl");
       const href=typeof url === 'string' ? url :'';
       if (newWindow) {
-        // 🔹 Daha önce açtığımız sekmeye PDF'i yüklüyoruz
         newWindow.location.href = href;
       } else {
-        // Sekme açılamadıysa fallback
         window.open(href, "_blank");
       }
     } catch (err) {
