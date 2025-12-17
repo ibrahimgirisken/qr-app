@@ -39,13 +39,18 @@ function Download({ targetRef }: { targetRef: any }) {
     }
   };
 
-  return (
-    <div>
-      <Button variant="primary" onClick={createPdf}>
-        <IoCloudDownload /> <span>İndir</span>
-      </Button>
-    </div>
-  );
+ return (
+  <div>
+    <Button
+      variant="primary"
+      onClick={createPdf}
+      style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+    >
+      <IoCloudDownload />
+      <span>İndir</span>
+    </Button>
+  </div>
+);
 }
 
 export default Download;
