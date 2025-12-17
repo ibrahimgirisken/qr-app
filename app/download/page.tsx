@@ -47,7 +47,7 @@ function Download({ targetRef }: { targetRef: any }) {
       style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
     >
       <IoCloudDownload />
-      <span>İndir</span>
+      <span>Download</span>
     </Button>
   </div>
 );
