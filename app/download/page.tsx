@@ -42,7 +42,7 @@ function Download({ targetRef }: { targetRef: any }) {
   return (
     <div>
       <Button variant="primary" onClick={createPdf}>
-        <IoCloudDownload /> İndir PDF
+        <IoCloudDownload /> <span>İndir</span>
       </Button>
     </div>
   );
